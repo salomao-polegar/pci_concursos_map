@@ -9,9 +9,9 @@ Instalar as dependências:\
 Fazer as migrações para o banco de dados:\
 &nbsp;&nbsp;&nbsp;&nbsp;python manage.py migrate\
 Executar o programa: \
-&nbsp;&nbsp;&nbsp;&nbsp;python manage.py runserver\
+&nbsp;&nbsp;&nbsp;&nbsp;python manage.py runserver
 
-Utilização das seguintes ferramentas:\
+Utilização das seguintes ferramentas:
 
 Django/python\
 SQLITE3\
