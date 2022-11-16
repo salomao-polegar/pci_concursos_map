@@ -5,11 +5,11 @@ O projeto foi realizado para fins de estudo e portifólio.
 Uso:\
 Baixar o projeto e descompactar\
 Instalar as dependências:\
-    *pip install -r "requirements.txt"\
+&nbsp;&nbsp;&nbsp;&nbsp;pip install -r "requirements.txt"\
 Fazer as migrações para o banco de dados:\
-    python manage.py migrate\
+&nbsp;&nbsp;&nbsp;&nbsp;python manage.py migrate\
 Executar o programa: \
-    python manage.py runserver\
+&nbsp;&nbsp;&nbsp;&nbsp;python manage.py runserver\
 
 Utilização das seguintes ferramentas:\
 
