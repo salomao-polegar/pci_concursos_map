@@ -1,0 +1,104 @@
+{% extends "_base.html" %}
+{% block content %}
+<main role="main">
+  <section class="jumbotron text-center" style="margin-bottom:0rem;">
+    <div class="container">
+      <h1 class="jumbotron-heading">Concursos Públicos</h1>
+      <p class="lead text-muted">Mapa com concursos públicos no Brasil, com base no site pciconcursos.com.br</p>
+    </div>
+  </section>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      {% if mensagem %}
+      <div class="alert alert-success" role="alert">
+        {{mensagem}}
+      </div>
+      {% endif %}
+    
+    <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <p class="lead text-muted">Dados armazenados: {{ address|length }}</p>
+      </div>
+      <div class="col-md-4">
+        <form class="my-2 my-lg-0" action="{% url 'index' %}" method="GET">
+          <select class="form-control selectpicker" id="select-country" data-live-search="true" name="uf">
+            <option value="AC" data-tokens="Acre">AC</option>
+            <option value="AL" data-tokens="Alagoas">AL</option>
+            <option value="AP" data-tokens="Amapá">AP</option>
+            <option value="AM" data-tokens="Amazonas">AM</option>
+            <option value="BA" data-tokens="Bahia">BA</option>
+            <option value="CE" data-tokens="Ceará">CE</option>
+            <option value="DF" data-tokens="Distrito Federal">DF</option>
+            <option value="ES" data-tokens="Espírito Santo">ES</option>
+            <option value="GO" data-tokens="Goiás">GO</option>
+            <option value="MA" data-tokens="Maranhão">MA</option>
+            <option value="MT" data-tokens="Mato Grosso">MT</option>
+            <option value="MS" data-tokens="Mato Grosso do Sul">MS</option>
+            <option value="MG" data-tokens="Minas Gerais">MG</option>
+            <option value="PA" data-tokens="Pará">PA</option>
+            <option value="PB" data-tokens="Paraíba">PB</option>
+            <option value="PR" data-tokens="Paraná">PR</option>
+            <option value="PE" data-tokens="Pernambuco">PE</option>
+            <option value="PI" data-tokens="Piauí">PI</option>
+            <option value="RJ" data-tokens="Rio de Janeiro">RJ</option>
+            <option value="RN" data-tokens="Rio Grande do Norte">RN</option>
+            <option value="RS" data-tokens="Rio Grande do Sul">RS</option>
+            <option value="RO" data-tokens="Rondônia">RO</option>
+            <option value="RR" data-tokens="Roraima">RR</option>
+            <option value="SC" data-tokens="Santa Catarina">SC</option>
+            <option value="SP" data-tokens="São Paulo">SP</option>
+            <option value="SE" data-tokens="Sergipe">SE</option>
+            <option value="TO" data-tokens="Tocantins">TO</option>
+          </select>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ir</button>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <form class="my-2 my-lg-0" action="{% url 'index' %}" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Órgão" aria-label="Orgao" name="orgao">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ir</button>
+        </form>
+
+      </div>
+      
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12 offser-md-1"">
+        {{ map|safe }}
+      </div>
+    </div>
+    
+    </div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    {% if invalid_address %}
+    <p><b> Endereços não encontrados: {{ invalid_address|length }}</b></p>
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Índice</th>
+          <th scope="col">Órgão</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for add in invalid_address %}
+        <tr>
+          <td>{{ add.id }} </td>
+          <td>{{ add.orgao }} </td>
+
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% endif %}
+      
+    </div>
+  </div>
+
+</main>
+    
+{% endblock %}
