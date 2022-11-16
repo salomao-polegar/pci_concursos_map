@@ -21,3 +21,7 @@ Pandas\
 Regex\
 Folium\
 Geopy
+
+Obs.: para utilizar o sistema, é necessário ter uma API Key do Google:
+Criar um arquivo .env:
+KEY_GOOGLE=
